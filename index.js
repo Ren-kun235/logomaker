@@ -26,7 +26,8 @@ function init() {
         {
             type: "input",
             message: questions[2],
-            name: "name"
+            name: "name",
+            validate: true
         }
     ])
     .then((answers) => {
