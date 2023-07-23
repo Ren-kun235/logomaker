@@ -47,7 +47,7 @@ function logomaker(answers) {
     } else if (answers.shape === "Triangle") {
         svg = new Triangle(answers.text, answers.color)
     } else {
-        return null //console.log()
+        console.log("Please create a Logo!")
     }
 
     return input.rendershape()
