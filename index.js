@@ -1,6 +1,7 @@
 const fs = require("fs");
 const jest = require("jest");
 const inquirer = require("inquirer");
+const { Circle, Square, Triangle } = require("./library/shapes");
 
 const questions = [
     "What shape would you like your logo to be?",
@@ -13,7 +14,7 @@ const questions = [
 function init() {
     inquirer.prompt([
         {
-            type: "checkbox",
+            type: "list",
             message: questions[0],
             name: "shape",
             choices: ["Square", "Circle", "Triangle"]
@@ -26,29 +27,33 @@ function init() {
         {
             type: "input",
             message: questions[2],
-            name: "name",
-            validate: true
+            name: "text",
         }
     ])
-    .then((answers) => {
+    .then((answers) => { console.log(answers.shape)
         fs.writeFile("index.html", logomaker(answers), err =>
         err ? console.error(err) : console.log('Logo created!')
         );
     })
 }
 
+init()
+
 function logomaker(answers) {
     let svg;
 
     if (answers.shape === "Circle") {
         svg = new Circle(answers.text, answers.color)
+        return svg.rendershape()
     } else if (answers.shape === "Square") {
         svg = new Square(answers.text, answers.color)
+        return svg.rendershape()
     } else if (answers.shape === "Triangle") {
         svg = new Triangle(answers.text, answers.color)
+        return svg.rendershape()
     } else {
         console.log("Please create a Logo!")
     }
 
-    return input.rendershape()
+    // return svg.rendershape()
 }
