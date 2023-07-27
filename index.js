@@ -3,6 +3,7 @@ const jest = require("jest");
 const inquirer = require("inquirer");
 const { Circle, Square, Triangle } = require("./library/shapes");
 
+// array of questions
 const questions = [
     "What shape would you like your logo to be?",
 
@@ -11,6 +12,7 @@ const questions = [
     "Please enter in 3 characters you would like to display on your logo",
 ]
 
+// inquirer function to generate the SVG file
 function init() {
     inquirer.prompt([
         {
@@ -37,8 +39,10 @@ function init() {
     })
 }
 
+// calls init so when run, executes properly
 init()
 
+// if statement to render different shapes
 function logomaker(answers) {
     let svg;
 
@@ -55,5 +59,4 @@ function logomaker(answers) {
         console.log("Please create a Logo!")
     }
 
-    // return svg.rendershape()
 }

@@ -1,3 +1,4 @@
+// Square constructor that is called to generate a square logo
 class Square {
     constructor (text, color) {
         this.text = text;
@@ -24,6 +25,7 @@ class Square {
     }
 }
 
+// Circle constructor that is called to generate a Circle logo
 class Circle {
     constructor (text, color) {
         this.color = color;
@@ -50,6 +52,7 @@ class Circle {
     }
 }
 
+// Triangle constructor that is called to generate a Triangle logo
 class Triangle {
     constructor (text, color) {
         this.color = color;
